@@ -48,7 +48,7 @@ GO
 INSERT INTO Job (CategoryId, [Name], DueDate, IsCompleted) VALUES ('003A73CF-7DDB-ED11-A495-BE781799F978', N'Купити канцелярію', GETDATE() + 1, 0)
 
 --SELECT ALL JOBS
-SELECT Job.Id, Job.[Name], Category.[Name] AS CategoryName, Category.Id AS CategoryId, Job.IsCompleted, Job.DueDate,  ABS(DATEDIFF(MINUTE, GETDATE(), Job.DueDate)) AS DateDifferenceInMinutes FROM Job INNER JOIN Category ON Category.Id = Job.CategoryId
+SELECT Job.Id, Job.[Name], Category.[Name] AS CategoryName, Job.IsCompleted, Job.DueDate,  ABS(DATEDIFF(MINUTE, GETDATE(), Job.DueDate)) AS DateDifferenceInMinutes FROM Job INNER JOIN Category ON Category.Id = Job.CategoryId
 ORDER BY  Job.IsCompleted, DateDifferenceInMinutes
 
 SELECT Job.Id, Job.[Name], Category.[Name] AS CategoryName, Job.IsCompleted, Job.DueDate,  ABS(DATEDIFF(MINUTE, GETDATE(), Job.DueDate)) AS DateDifferenceInMinutes FROM Job INNER JOIN Category ON Category.Id = Job.CategoryId
